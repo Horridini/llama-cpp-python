@@ -231,7 +231,7 @@ jobs:
           # one forward-compatible PTX target instead of embedding PTX for every
           # SM. This keeps the wheel under GitHub's 2 GiB release-asset limit.
           $env:CMAKE_ARGS = "-DGGML_CUDA_FORCE_MMQ=ON -DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=$cudaArchs -DCMAKE_CUDA_FLAGS=-allow-unsupported-compiler -DCMAKE_CUDA_FLAGS_INIT=-allow-unsupported-compiler $env:CMAKE_ARGS"
-          $env:CMAKE_ARGS = $env:CMAKE_ARGS + ' -DGGML_AVX2=on -DGGML_FMA=on -DGGML_F16C=on -DGGML_AVX512=off'
+          $env:CMAKE_ARGS = $env:CMAKE_ARGS + ' -DGGML_AVX2=on -DGGML_FMA=on -DGGML_F16C=on -DGGML_AVX512=off -DGGML_NATIVE=off'
           if ($IsLinux) {
             $env:CMAKE_ARGS = $env:CMAKE_ARGS + ' -DGGML_OPENMP=OFF'
           }
